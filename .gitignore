@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.venv312/
+venv/
+.env
+.uv-cache/
+.uv-python/
+
+# Build / packaging
+build/
+dist/
+public-release/
+*.spec
+*.exe
+*.zip
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+
+# Test / cache
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tmp-test/
+.claude/
+.coverage
+htmlcov/
+
+# Raw experimental data
+test-data/
+*.sdt
+*.spc
+*.set
+
+# Exported data
+*.zarr/
+exports/
+runs/
+tmp/
+scratch/
+*.npy
+*.tif
+*.tiff
+
+# Large or generated text exports
+*_intensity.csv
+*_intensity.txt
+batch_export_log.json
+*_export_meta.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+!tests/fixtures/**

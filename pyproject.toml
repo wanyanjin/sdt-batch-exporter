@@ -1,0 +1,73 @@
+[project]
+name = "sdt-batch-exporter"
+version = "0.1.0"
+description = "Batch preview and export tool for Becker & Hickl SDT files."
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+authors = [
+  { name = "xinlu" }
+]
+dependencies = [
+    "numcodecs>=0.12,<0.16",
+    "numpy>=2",
+    "pyqtgraph>=0.14.0",
+    "pyside6>=6.11.1",
+    "sdtfile>=2026.2.8",
+    "zarr>=2,<3",
+]
+
+[project.scripts]
+sdt-export = "sdt_batch_exporter.cli:main"
+sdt-export-gui = "sdt_batch_exporter.gui.app:run_gui"
+
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+  "pytest>=8",
+  "ruff>=0.6",
+  "mypy>=1.10",
+  "pyinstaller>=6",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-q"
+markers = [
+  "realdata: tests requiring local real SDT files",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = [
+  "E",
+  "F",
+  "I",
+  "B",
+  "UP",
+  "SIM",
+]
+ignore = []
+
+[tool.mypy]
+python_version = "3.12"
+mypy_path = "src"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+no_implicit_optional = true
+
+[[tool.mypy.overrides]]
+module = ["zarr", "numcodecs", "numcodecs.*"]
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = ["pyqtgraph", "pyqtgraph.*"]
+ignore_missing_imports = true
