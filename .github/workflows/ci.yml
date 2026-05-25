@@ -1,4 +1,4 @@
-﻿name: CI
+name: CI
 
 on:
   push:
@@ -7,8 +7,6 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    env:
-      QT_QPA_PLATFORM: offscreen
     steps:
       - uses: actions/checkout@v4
       - name: Install Linux GUI runtime deps
@@ -27,5 +25,3 @@ jobs:
         run: uv run ruff check .
       - name: Mypy
         run: uv run mypy src tests
-
-

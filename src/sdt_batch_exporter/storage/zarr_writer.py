@@ -53,7 +53,7 @@ def export_dataset_to_zarr(
         root = zarr.open_group(str(tmp_path), mode="w")
         root.attrs.update(
             {
-                "schema_version": "0.1.0",
+                "schema_version": "0.2.0",
                 "source_file": dataset_data.source_path.name,
                 "source_path": str(dataset_data.source_path.resolve()),
                 "export_time": datetime.now(UTC).isoformat(),

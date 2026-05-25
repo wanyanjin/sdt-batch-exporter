@@ -76,9 +76,9 @@ def test_export_dataset_to_zarr_roundtrip_with_3d_synthetic_data(tmp_path: Path)
     assert np.array_equal(root["dataset_000/intensity"][:], preview.intensity)
     assert np.array_equal(root["dataset_000/time"][:], preview.time)
     assert "metadata" in root
-    assert root.attrs["schema_version"] == "0.1.0"
+    assert root.attrs["schema_version"] == "0.2.0"
     assert root.attrs["source_file"] == dataset.source_path.name
-    assert root.attrs["software_version"] == "0.1.0"
+    assert root.attrs["software_version"] == "0.2.0"
     assert root.attrs["compression_profile"] == "balanced"
     assert root.attrs["chunk_strategy"] == "auto"
     dataset_attrs = root["dataset_000"].attrs

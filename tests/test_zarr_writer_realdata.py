@@ -38,7 +38,7 @@ def test_export_sdt_dataset_to_zarr_realdata_readback(tmp_path: Path) -> None:
     export_sdt_dataset_to_zarr(source, output, dataset_index=0)
 
     root = zarr.open_group(str(output), mode="r")
-    assert root.attrs["schema_version"] == "0.1.0"
+    assert root.attrs["schema_version"] == "0.2.0"
     assert "metadata" in root
     assert "raw_counts" in root["dataset_000"]
     if "intensity" in root["dataset_000"]:

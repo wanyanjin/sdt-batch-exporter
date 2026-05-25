@@ -9,7 +9,7 @@
 
 ## 2. schema_version
 
-- 初始 schema version：`0.1.0`
+- 当前 schema version：`0.2.0`
 - 所有 Zarr root attrs 必须包含 `schema_version`
 - 任何破坏性变更都必须升级 schema version，并同步更新文档和测试。
 
@@ -43,11 +43,11 @@ root attrs 至少包含：
 
 ```json
 {
-  "schema_version": "0.1.0",
+  "schema_version": "0.2.0",
   "source_file": "sample_001.sdt",
   "source_path": "D:/data/sample_001.sdt",
   "export_time": "2026-05-20T12:00:00+08:00",
-  "software_version": "0.1.0",
+  "software_version": "0.2.0",
   "dataset_count": 2,
   "exporter": "SDT Batch Exporter",
   "compression_profile": "balanced",
